@@ -83,6 +83,13 @@ export default function AdminDashboard() {
     }
   }, [userData, user?.isEmployee, user?.isAdmin, setLocation]);
 
+  // Redirect clients to owner dashboard so they see their fleet
+  useEffect(() => {
+    if (userData && user?.isClient && !user?.isAdmin) {
+      setLocation("/owner/dashboard");
+    }
+  }, [userData, user?.isClient, user?.isAdmin, setLocation]);
+
   // Auto-open tutorial for new users (admin, client, employee) who haven't completed the tour
   // Only on dashboard page, only once per user
   useEffect(() => {
