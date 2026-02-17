@@ -24,3 +24,5 @@ npm-debug.log*
 
 # Vercel
 .vercel
+# Root dist output
+dist/
