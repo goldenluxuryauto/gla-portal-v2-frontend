@@ -69,6 +69,12 @@ import StaffCarRentalFormSubmit from "@/pages/staff/car-rental-form-submit";
 import CalendarPage from "@/pages/admin/calendar";
 import FleetDashboardPage from "@/pages/admin/fleet-dashboard";
 import FinancialsPage from "@/pages/admin/financials";
+import OwnerDashboard from "@/pages/owner/dashboard";
+import OwnerEarnings from "@/pages/owner/earnings";
+import OwnerActivityFeed from "@/pages/owner/activity-feed";
+import OwnerDocuments from "@/pages/owner/documents";
+import OwnerMaintenance from "@/pages/owner/maintenance";
+import OnboardingWizard from "@/pages/owner/onboarding-wizard";
 
 function Router() {
   return (
@@ -93,6 +99,12 @@ function Router() {
       <Route path="/staff/car-rental/trips" component={StaffCarRentalTrips} />
       <Route path="/staff/car-rental/forms/submit" component={StaffCarRentalFormSubmit} />
       <Route path="/staff/car-rental/forms" component={StaffCarRentalForms} />
+      <Route path="/owner/dashboard" component={OwnerDashboard} />
+      <Route path="/owner/earnings" component={OwnerEarnings} />
+      <Route path="/owner/activity" component={OwnerActivityFeed} />
+      <Route path="/owner/documents" component={OwnerDocuments} />
+      <Route path="/owner/maintenance" component={OwnerMaintenance} />
+      <Route path="/owner/onboarding" component={OnboardingWizard} />
       <Route path="/admin/calendar" component={CalendarPage} />
       <Route path="/admin/fleet-dashboard" component={FleetDashboardPage} />
       <Route path="/admin/financials" component={FinancialsPage} />
