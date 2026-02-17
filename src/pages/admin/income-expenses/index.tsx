@@ -453,7 +453,7 @@ export default function IncomeExpensesPage({ carIdFromRoute }: IncomeExpensesPag
 
   // Per-car view (both from route and from admin selection)
   return (
-    <IncomeExpenseProvider carId={activeCarId} year={selectedYear}>
+    <IncomeExpenseProvider carId={activeCarId!} year={selectedYear}>
       <AdminLayout>
         <div className="flex flex-col w-full h-full overflow-hidden">
           {/* Header */}
@@ -582,7 +582,7 @@ export default function IncomeExpensesPage({ carIdFromRoute }: IncomeExpensesPag
               <TableActions
                 selectedYear={selectedYear}
                 setSelectedYear={setSelectedYear}
-                carId={activeCarId}
+                carId={activeCarId!}
                 car={car}
               />
             </div>

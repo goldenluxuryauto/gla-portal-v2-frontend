@@ -138,7 +138,7 @@ export function CarComingBackForm({ onBack }: CarComingBackFormProps) {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    const formValues = {
+    const formValues: Record<string, string> = {
       form_submit_gas_gauge: gasGauge,
       form_submit_miles: miles,
       ...values,
