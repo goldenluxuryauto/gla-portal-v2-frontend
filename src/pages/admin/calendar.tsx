@@ -84,14 +84,26 @@ export default function CalendarPage() {
   const [searchQuery, setSearchQuery] = useState("");
 
   useEffect(() => {
-    fetch("/data/calendar-trips.json")
-      .then((r) => r.json())
+    // Try API first, fall back to static JSON
+    fetch("/api/admin/calendar/trips", { credentials: "include" })
+      .then((r) => (r.ok ? r.json() : Promise.reject("API unavailable")))
       .then((data: TripEvent[]) => setTrips(data))
-      .catch(console.error);
-    fetch("/data/calendar-vehicles.json")
-      .then((r) => r.json())
+      .catch(() => {
+        // Fallback to static JSON during development
+        fetch("/data/calendar-trips.json")
+          .then((r) => r.json())
+          .then((data: TripEvent[]) => setTrips(data))
+          .catch(console.error);
+      });
+    fetch("/api/admin/calendar/vehicles", { credentials: "include" })
+      .then((r) => (r.ok ? r.json() : Promise.reject("API unavailable")))
       .then((data: string[]) => setVehicles(data))
-      .catch(console.error);
+      .catch(() => {
+        fetch("/data/calendar-vehicles.json")
+          .then((r) => r.json())
+          .then((data: string[]) => setVehicles(data))
+          .catch(console.error);
+      });
   }, []);
 
   const locations = useMemo(
