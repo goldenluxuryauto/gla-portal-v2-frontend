@@ -68,6 +68,7 @@ import StaffCarRentalForms from "@/pages/staff/car-rental-forms";
 import StaffCarRentalFormSubmit from "@/pages/staff/car-rental-form-submit";
 import CalendarPage from "@/pages/admin/calendar";
 import FleetDashboardPage from "@/pages/admin/fleet-dashboard";
+import FinancialsPage from "@/pages/admin/financials";
 
 function Router() {
   return (
@@ -94,6 +95,7 @@ function Router() {
       <Route path="/staff/car-rental/forms" component={StaffCarRentalForms} />
       <Route path="/admin/calendar" component={CalendarPage} />
       <Route path="/admin/fleet-dashboard" component={FleetDashboardPage} />
+      <Route path="/admin/financials" component={FinancialsPage} />
       <Route path="/dashboard" component={AdminDashboard} />
       <Route path="/admin/admins" component={AdminsPage} />
       <Route path="/admin/clients" component={ClientsPage} />
