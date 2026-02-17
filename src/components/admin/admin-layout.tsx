@@ -27,7 +27,8 @@ import {
   MessageCircle,
   Cog,
   CalendarDays,
-  Truck
+  Truck,
+  BarChart3
 } from "lucide-react";
 import { NotificationBell } from "./NotificationBell";
 import { cn } from "@/lib/utils";
@@ -50,6 +51,7 @@ const allSidebarItems: SidebarItem[] = [
   { href: "/dashboard", label: "Dashboard", icon: LayoutDashboard },
   { href: "/admin/calendar", label: "Calendar", icon: CalendarDays, roles: ["admin"] },
   { href: "/admin/fleet-dashboard", label: "Fleet Dashboard", icon: Truck, roles: ["admin"] },
+  { href: "/admin/financials", label: "Financials", icon: BarChart3, roles: ["admin"] },
   // Client-only profile link for logged-in clients
   { href: "/profile", label: "Profile", icon: User, roles: ["client"] },
   { href: "/admin/admins", label: "Admins", icon: Users, roles: ["admin"] },
