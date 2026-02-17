@@ -25,7 +25,8 @@ import {
   FileText,
   Clock,
   MessageCircle,
-  Cog
+  Cog,
+  CalendarDays
 } from "lucide-react";
 import { NotificationBell } from "./NotificationBell";
 import { cn } from "@/lib/utils";
@@ -46,6 +47,7 @@ interface SidebarItem {
 
 const allSidebarItems: SidebarItem[] = [
   { href: "/dashboard", label: "Dashboard", icon: LayoutDashboard },
+  { href: "/admin/calendar", label: "Calendar", icon: CalendarDays, roles: ["admin"] },
   // Client-only profile link for logged-in clients
   { href: "/profile", label: "Profile", icon: User, roles: ["client"] },
   { href: "/admin/admins", label: "Admins", icon: Users, roles: ["admin"] },
