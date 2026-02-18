@@ -56,7 +56,7 @@ const allSidebarItems: SidebarItem[] = [
   { href: "/admin/calendar", label: "Calendar", icon: CalendarDays, roles: ["admin"] },
   { href: "/admin/fleet-dashboard", label: "Fleet Dashboard", icon: Truck, roles: ["admin"] },
   { href: "/admin/financials", label: "Financials", icon: BarChart3, roles: ["admin"] },
-  { href: "/admin/intelligence", label: "Intelligence", icon: Sparkles, roles: ["admin"] },
+  { href: "/admin/intelligence", label: "📊 Analytics", icon: Sparkles, roles: ["admin"] },
   // Client-only pages
   { href: "/owner/dashboard", label: "My Fleet", icon: Car, roles: ["client"] },
   { href: "/owner/earnings", label: "Earnings", icon: DollarSign, roles: ["client"] },
