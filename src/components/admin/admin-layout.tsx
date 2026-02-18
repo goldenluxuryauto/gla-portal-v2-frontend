@@ -28,7 +28,11 @@ import {
   Cog,
   CalendarDays,
   Truck,
-  BarChart3
+  BarChart3,
+  Sparkles,
+  ListTodo,
+  Bell,
+  Timer
 } from "lucide-react";
 import { NotificationBell } from "./NotificationBell";
 import { cn } from "@/lib/utils";
@@ -73,13 +77,23 @@ const allSidebarItems: SidebarItem[] = [
       { href: "/admin/payment-status", label: "Status", icon: ClipboardList, roles: ["admin"] },
     ],
   },
-  { href: "/admin/totals", label: "Totals", icon: Calculator, roles: ["admin"] },
-  { href: "/admin/operations", label: "Operations", icon: Cog, roles: ["admin"] },
-  { href: "/admin/maintenance", label: "Car Maintenance", icon: Wrench, roles: ["admin"] },
+  { href: "/admin/totals-overview", label: "Totals", icon: Calculator, roles: ["admin"] },
+  {
+    href: "/admin/operations",
+    label: "Operations",
+    icon: Cog,
+    roles: ["admin"],
+    children: [
+      { href: "/admin/logistics", label: "Logistics & Delivery", icon: Truck, roles: ["admin"] },
+      { href: "/admin/maintenance-module", label: "Maintenance", icon: Wrench, roles: ["admin"] },
+      { href: "/admin/tasks", label: "Task Board", icon: ListTodo, roles: ["admin"] },
+      { href: "/admin/car-rental-mgmt", label: "Car Rental", icon: Key, roles: ["admin"] },
+    ],
+  },
+  { href: "/admin/maintenance", label: "Car Maintenance (Legacy)", icon: Wrench, roles: ["admin"] },
   { href: "/admin/forms", label: "Forms", icon: ClipboardList },
   { href: "/admin/view-client", label: "View as a Client", icon: Eye, roles: ["admin"] },
   { href: "/admin/view-employee", label: "View as an Employee", icon: Eye, roles: ["admin"] },
-  { href: "/admin/car-rental", label: "Car Rental", icon: Key, roles: ["admin"] },
   {
     href: "/admin/hr",
     label: "Human Resources",
@@ -87,10 +101,11 @@ const allSidebarItems: SidebarItem[] = [
     roles: ["admin"],
     children: [
       { href: "/admin/hr/employees", label: "Employees", icon: Users, roles: ["admin"] },
-      { href: "/admin/hr/work-schedule", label: "Work Schedule", icon: Clock, roles: ["admin"] }
+      { href: "/admin/hr/work-schedule", label: "Work Schedule", icon: Clock, roles: ["admin"] },
+      { href: "/admin/hr-portal", label: "Employee Portal", icon: User, roles: ["admin"] },
     ],
   },
-  { href: "/admin/payroll", label: "Payroll", icon: DollarSign, roles: ["admin"] },
+  { href: "/admin/payroll-mgmt", label: "Payroll", icon: DollarSign, roles: ["admin"] },
   { href: "/admin/settings", label: "Settings", icon: Settings },
   { href: "/admin/turo-guide", label: "Turo Guide", icon: BookOpen },
   { href: "/admin/training-manual", label: "System Tutorial", icon: GraduationCap, roles: ["admin"] },
