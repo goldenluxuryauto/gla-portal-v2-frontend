@@ -2,13 +2,24 @@ import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import path from "path";
 import { fileURLToPath } from "url";
+import { visualizer } from "rollup-plugin-visualizer";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 export default defineConfig({
   plugins: [
-    react({
-    }),
+    react({}),
+    // Bundle analyzer — run `ANALYZE=true npm run build` to generate stats.html
+    ...(process.env.ANALYZE
+      ? [
+          visualizer({
+            filename: "stats.html",
+            open: true,
+            gzipSize: true,
+            brotliSize: true,
+          }),
+        ]
+      : []),
   ],
   resolve: {
     alias: {
