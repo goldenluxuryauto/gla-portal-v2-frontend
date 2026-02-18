@@ -37,6 +37,13 @@ import CarIncomeExpensePage from "@/pages/admin/car-income-expense";
 import IncomeExpenseLogPage from "@/pages/admin/income-expense-log";
 import SettingsPage from "@/pages/admin/settings";
 import OperationsPage from "@/pages/admin/operations";
+import LogisticsPage from "@/pages/admin/logistics";
+import MaintenanceModulePage from "@/pages/admin/maintenance-module";
+import TasksPage from "@/pages/admin/tasks";
+import TotalsPageNew from "@/pages/admin/totals-page";
+import CarRentalPage from "@/pages/admin/car-rental-page";
+import PayrollPageNew from "@/pages/admin/payroll-page";
+import HRPortalPage from "@/pages/admin/hr-portal";
 import HumanResourcesPage from "@/pages/admin/hr";
 import EmployeesPage from "@/pages/admin/hr/employees";
 import EmployeeViewPage from "@/pages/admin/hr/employee-view";
@@ -134,6 +141,13 @@ function Router() {
       <Route path="/admin/cars/:id" component={CarDetailPage} />
       <Route path="/admin/income-expenses" component={IncomeExpensesPageWrapper} />
       <Route path="/admin/settings" component={SettingsPage} />
+      <Route path="/admin/logistics" component={LogisticsPage} />
+      <Route path="/admin/maintenance-module" component={MaintenanceModulePage} />
+      <Route path="/admin/tasks" component={TasksPage} />
+      <Route path="/admin/totals-overview" component={TotalsPageNew} />
+      <Route path="/admin/car-rental-mgmt" component={CarRentalPage} />
+      <Route path="/admin/payroll-mgmt" component={PayrollPageNew} />
+      <Route path="/admin/hr-portal" component={HRPortalPage} />
       <Route path="/admin/operations" component={OperationsPage} />
       <Route path="/admin/hr" component={HumanResourcesPage} />
       <Route path="/admin/hr/work-schedule" component={WorkSchedulePage} />
