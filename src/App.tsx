@@ -76,6 +76,7 @@ import StaffCarRentalFormSubmit from "@/pages/staff/car-rental-form-submit";
 import CalendarPage from "@/pages/admin/calendar";
 import FleetDashboardPage from "@/pages/admin/fleet-dashboard";
 import FinancialsPage from "@/pages/admin/financials";
+import IntelligencePage from "@/pages/admin/intelligence";
 import OwnerDashboard from "@/pages/owner/dashboard";
 import OwnerEarnings from "@/pages/owner/earnings";
 import OwnerActivityFeed from "@/pages/owner/activity-feed";
@@ -115,6 +116,7 @@ function Router() {
       <Route path="/admin/calendar" component={CalendarPage} />
       <Route path="/admin/fleet-dashboard" component={FleetDashboardPage} />
       <Route path="/admin/financials" component={FinancialsPage} />
+      <Route path="/admin/intelligence" component={IntelligencePage} />
       <Route path="/dashboard" component={AdminDashboard} />
       <Route path="/admin/admins" component={AdminsPage} />
       <Route path="/admin/clients" component={ClientsPage} />
