@@ -85,6 +85,11 @@ export default {
           DEFAULT: "hsl(var(--gold) / <alpha-value>)",
           foreground: "hsl(var(--gold-foreground) / <alpha-value>)",
         },
+        "gla-gold": {
+          DEFAULT: "#D4AF37",
+          dark: "#B8941F",
+          light: "#F4E99B",
+        },
       },
       fontFamily: {
         sans: ["var(--font-sans)"],

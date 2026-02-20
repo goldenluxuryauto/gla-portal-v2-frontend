@@ -6,6 +6,9 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Car, Users, DollarSign, TrendingUp, Mail, Phone, Clock, MessageCircle, CheckCircle } from "lucide-react";
 import QuickLinks from "@/components/admin/QuickLinks";
 import { OnboardingTutorial, useTutorial } from "@/components/onboarding/OnboardingTutorial";
+import { ScheduleWidget } from "@/components/dashboard/ScheduleWidget";
+import { RegistrationTracker } from "@/components/dashboard/RegistrationTracker";
+import { MaintenanceAlerts } from "@/components/dashboard/MaintenanceAlerts";
 import { buildApiUrl } from "@/lib/queryClient";
 
 export default function AdminDashboard() {
@@ -412,6 +415,18 @@ export default function AdminDashboard() {
             </CardContent>
           </Card>
         </div>
+
+        {/* Enhanced Dashboard Widgets - Only for Admins */}
+        {isAdmin && (
+          <div className="space-y-4">
+            <h2 className="text-xl font-semibold text-foreground">Operations Dashboard</h2>
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
+              <ScheduleWidget />
+              <RegistrationTracker />
+              <MaintenanceAlerts />
+            </div>
+          </div>
+        )}
 
         {/* Quick Links */}
         <div className="space-y-4">
