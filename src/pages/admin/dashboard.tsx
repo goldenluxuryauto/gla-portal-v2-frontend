@@ -136,10 +136,10 @@ export default function AdminDashboard() {
     }
   }, [tutorialIsOpen, tourCompleted, user?.id, markTourShownMutation]);
 
-  const { data: stats, isLoading } = useQuery<{ activeVehicles?: number; totalClients?: number; monthlyRevenue?: number; growthRate?: number }>({
-    queryKey: ["/api/admin/dashboard"],
+  const { data: stats, isLoading } = useQuery<{ activeVehicles?: number; totalClients?: number; monthlyRevenue?: number; totalEarnings?: number; totalTrips?: number; growthRate?: number; vehicleCount?: any; recentActivity?: number }>({
+    queryKey: ["/api/admin/dashboard/real-stats"],
     retry: false,
-    enabled: !!user && isAdmin, // Only fetch admin stats when admin is authenticated
+    enabled: !!user && isAdmin, // Only fetch real GLA stats when admin is authenticated
   });
 
   const { data: clientStats, isLoading: isClientStatsLoading } = useQuery<{
@@ -242,7 +242,7 @@ export default function AdminDashboard() {
                     <span className="text-sm text-muted-foreground">Active Vehicles</span>
                   </div>
                   <p className="text-3xl font-bold text-foreground" data-testid="stat-vehicles">
-                    {isLoading ? "..." : stats?.activeVehicles || 24}
+                    {isLoading ? "..." : stats?.activeVehicles || 0}
                   </p>
                 </CardContent>
               </Card>
@@ -254,7 +254,7 @@ export default function AdminDashboard() {
                     <span className="text-sm text-muted-foreground">Total Clients</span>
                   </div>
                   <p className="text-3xl font-bold text-foreground" data-testid="stat-clients">
-                    {isLoading ? "..." : stats?.totalClients || 18}
+                    {isLoading ? "..." : stats?.totalClients || 0}
                   </p>
                 </CardContent>
               </Card>
@@ -266,7 +266,7 @@ export default function AdminDashboard() {
                     <span className="text-sm text-muted-foreground">Monthly Revenue</span>
                   </div>
                   <p className="text-3xl font-bold text-foreground" data-testid="stat-revenue">
-                    ${isLoading ? "..." : ((stats?.monthlyRevenue || 42500) / 1000).toFixed(1)}K
+                    ${isLoading ? "..." : ((stats?.monthlyRevenue || 0) / 1000).toFixed(1)}K
                   </p>
                 </CardContent>
               </Card>
@@ -278,7 +278,7 @@ export default function AdminDashboard() {
                     <span className="text-sm text-muted-foreground">Growth Rate</span>
                   </div>
                   <p className="text-3xl font-bold text-foreground" data-testid="stat-growth">
-                    +{isLoading ? "..." : stats?.growthRate || 23}%
+                    +{isLoading ? "..." : stats?.growthRate || 0}%
                   </p>
                 </CardContent>
               </Card>
