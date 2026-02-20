@@ -1,31 +1,28 @@
 {
-  "buildCommand": "npm run build",
-  "outputDirectory": "dist",
-  "framework": "vite",
-  "rewrites": [
+  "version": 2,
+  "name": "gla-portal-v2-frontend",
+  "builds": [
     {
-      "source": "/api/:path*",
-      "destination": "https://gla-portal-v2-backend.onrender.com/api/:path*"
-    },
-    {
-      "source": "/contracts/:path*",
-      "destination": "https://gla-portal-v2-backend.onrender.com/contracts/:path*"
-    },
-    {
-      "source": "/signed-contracts/:path*",
-      "destination": "https://gla-portal-v2-backend.onrender.com/signed-contracts/:path*"
-    },
-    {
-      "source": "/car-photos/:path*",
-      "destination": "https://gla-portal-v2-backend.onrender.com/car-photos/:path*"
-    },
-    {
-      "source": "/income-expense-images/:path*",
-      "destination": "https://gla-portal-v2-backend.onrender.com/income-expense-images/:path*"
-    },
-    {
-      "source": "/(.*)",
-      "destination": "/index.html"
+      "src": "package.json",
+      "use": "@vercel/static-build",
+      "config": {
+        "distDir": "dist"
+      }
     }
-  ]
+  ],
+  "routes": [
+    {
+      "handle": "filesystem"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/index.html"
+    }
+  ],
+  "env": {
+    "VITE_API_URL": "https://gla-portal-v2-backend.onrender.com",
+    "VITE_APP_NAME": "GLA Management Portal",
+    "VITE_APP_VERSION": "2.0.0",
+    "VITE_ENABLE_PWA": "true"
+  }
 }
