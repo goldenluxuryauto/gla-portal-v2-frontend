@@ -2,6 +2,10 @@ import { useQuery } from "@tanstack/react-query";
 import { AdminLayout } from "@/components/admin/admin-layout";
 import { buildApiUrl } from "@/lib/queryClient";
 import { Car, DollarSign, TrendingUp, Calendar, Activity, ArrowUpRight, ArrowDownRight } from "lucide-react";
+import ScheduleCard from "@/components/dashboard/ScheduleCard";
+import RegistrationColumn from "@/components/dashboard/RegistrationColumn";
+import MaintenanceBox from "@/components/dashboard/MaintenanceBox";
+import BounceAlertsBar from "@/components/dashboard/BounceAlertsBar";
 
 interface VehicleData {
   id: number;
@@ -73,6 +77,9 @@ export default function OwnerDashboard() {
           </div>
         ) : dashboard ? (
           <>
+            {/* Bounce Real-time Alerts */}
+            <BounceAlertsBar />
+
             {/* Stats Cards */}
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
               <StatCard
@@ -155,6 +162,17 @@ export default function OwnerDashboard() {
                     </div>
                   );
                 })}
+              </div>
+            </div>
+
+            {/* Schedule Integration */}
+            <ScheduleCard />
+
+            {/* Maintenance & Registration Tracking */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+              <MaintenanceBox />
+              <div>
+                <RegistrationColumn />
               </div>
             </div>
 
