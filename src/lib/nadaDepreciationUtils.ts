@@ -597,8 +597,8 @@ export function handleExportNadaExcel(
   car: any,
   year: string
 ): void {
-  // Dynamic import of xlsx to avoid loading it if not needed
-  import('xlsx').then((XLSX) => {
+  // Dynamic import of exceljs to avoid loading it if not needed
+  import('exceljs').then((ExcelJS) => {
     const getAllMonths = [
       "Jan",
       "Feb",
@@ -621,16 +621,16 @@ export function handleExportNadaExcel(
     const previousYear = (parseInt(year) - 1).toString();
     const previousYearSuffix = previousYear.length >= 2 ? previousYear.slice(-2) : previousYear;
 
-    const workbook = XLSX.utils.book_new();
-    const worksheetData: any[][] = [];
+    const workbook = new ExcelJS.Workbook();
+    const worksheet = workbook.addWorksheet("NADA Depreciation");
 
     // Section 1: Previous Year NADA Depreciation Schedule
-    worksheetData.push(["NADA Depreciation Schedule", previousYear]);
+    worksheet.addRow(["NADA Depreciation Schedule", previousYear]);
     const previousHeader = ["Current Cost of Vehicle"];
     getAllMonths.forEach((mItem) => {
       previousHeader.push(`${mItem}-${previousYearSuffix}`);
     });
-    worksheetData.push(previousHeader);
+    worksheet.addRow(previousHeader);
 
     // Previous year data rows (sorted by ID: Retail, Clean, Average, Rough, MILES)
     const sortedCostWithAdd = [...currentCostWithAdd].sort((a, b) => a.currentCostWithAddAid - b.currentCostWithAddAid);
@@ -639,18 +639,18 @@ export function handleExportNadaExcel(
       for (let i = 0; i < 12; i++) {
         row.push(0); // Template format - all values are 0
       }
-      worksheetData.push(row);
+      worksheet.addRow(row);
     });
 
-    worksheetData.push([]); // Empty row
+    worksheet.addRow([]); // Empty row
 
     // Section 2: Current Year NADA Depreciation Schedule
-    worksheetData.push(["NADA Depreciation Schedule", year]);
+    worksheet.addRow(["NADA Depreciation Schedule", year]);
     const currentHeader = ["Current Cost of Vehicle"];
     getAllMonths.forEach((mItem) => {
       currentHeader.push(`${mItem}-${yearSuffix}`);
     });
-    worksheetData.push(currentHeader);
+    worksheet.addRow(currentHeader);
 
     // Current year data rows (sorted by ID: Retail, Clean, Average, Rough, MILES, Amount Owed)
     const sortedCost = [...currentCost].sort((a, b) => a.currentCostAid - b.currentCostAid);
@@ -659,30 +659,31 @@ export function handleExportNadaExcel(
       for (let i = 0; i < 12; i++) {
         row.push(0); // Template format - all values are 0
       }
-      worksheetData.push(row);
+      worksheet.addRow(row);
     });
 
-    // Create worksheet
-    const worksheet = XLSX.utils.aoa_to_sheet(worksheetData);
-
     // Set column widths
-    const colWidths = [{ wch: 25 }]; // First column
-    for (let i = 0; i < 12; i++) {
-      colWidths.push({ wch: 12 }); // Month columns
+    worksheet.getColumn(1).width = 25; // First column
+    for (let i = 2; i <= 13; i++) {
+      worksheet.getColumn(i).width = 12; // Month columns
     }
-    worksheet['!cols'] = colWidths;
-
-    // Add worksheet to workbook
-    XLSX.utils.book_append_sheet(workbook, worksheet, "NADA Depreciation");
 
     // Generate filename
     const fileName = `NADA Depreciation Schedule Template.xlsx`;
 
-    // Write file
-    XLSX.writeFile(workbook, fileName);
+    // Write file using ExcelJS buffer and save
+    workbook.xlsx.writeBuffer().then((buffer) => {
+      const blob = new Blob([buffer], { type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' });
+      const url = window.URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = fileName;
+      a.click();
+      window.URL.revokeObjectURL(url);
+    });
   }).catch((error) => {
     console.error("Failed to export Excel file:", error);
-    alert("Failed to export Excel file. Please ensure xlsx library is installed.");
+    alert("Failed to export Excel file. Please ensure ExcelJS library is installed.");
   });
 }
 
