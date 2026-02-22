@@ -3,6 +3,7 @@ import { useLocation } from "wouter";
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import { AdminLayout } from "@/components/admin/admin-layout";
 import { Card, CardContent } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
 import { Car, Users, DollarSign, TrendingUp, Mail, Phone, Clock, MessageCircle, CheckCircle } from "lucide-react";
 import QuickLinks from "@/components/admin/QuickLinks";
 import { OnboardingTutorial, useTutorial } from "@/components/onboarding/OnboardingTutorial";
@@ -15,6 +16,13 @@ import { RevenueAnalyticsWidget } from "@/components/dashboard/RevenueAnalyticsW
 import { CostAnalyticsWidget } from "@/components/dashboard/CostAnalyticsWidget";
 import { TaskManagerWidget } from "@/components/dashboard/TaskManagerWidget";
 import { PerformanceAveragesWidget } from "@/components/dashboard/PerformanceAveragesWidget";
+import { BouncieStatusWidget } from "@/components/dashboard/BouncieStatusWidget";
+import { CEOMessageWidget } from "@/components/dashboard/CEOMessageWidget";
+import { CompanyCalendarWidget } from "@/components/dashboard/CompanyCalendarWidget";
+import { EmployeeWorkScheduleWidget } from "@/components/dashboard/EmployeeWorkScheduleWidget";
+import { WeeklyMeetingsWidget } from "@/components/dashboard/WeeklyMeetingsWidget";
+import { CommissionStructureWidget } from "@/components/dashboard/CommissionStructureWidget";
+import { HeaderAnnouncementWidget } from "@/components/dashboard/HeaderAnnouncementWidget";
 import { buildApiUrl } from "@/lib/queryClient";
 
 export default function AdminDashboard() {
@@ -418,30 +426,68 @@ export default function AdminDashboard() {
           </Card>
         </div>
 
+        {/* Header Announcements - Always visible when active */}
+        <HeaderAnnouncementWidget />
+
         {/* Comprehensive Business Intelligence Dashboard - Only for Admins */}
         {isAdmin && (
-          <div className="space-y-6">
-            <h2 className="text-xl font-semibold text-foreground">Business Command Center</h2>
+          <div className="space-y-8">
+            <h2 className="text-2xl font-bold text-foreground flex items-center gap-3">
+              <span className="text-3xl">⚙️</span>
+              GLA Command Center
+              <Badge variant="secondary" className="ml-2">
+                16 Widgets Active
+              </Badge>
+            </h2>
             
-            {/* Top Row: Calendar, Task Manager, Performance Averages */}
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-              <CalendarWidget />
-              <TaskManagerWidget />
-              <PerformanceAveragesWidget />
+            {/* Row 1: CEO Communication & Company Info */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6">
+              <CEOMessageWidget />
+              <CompanyCalendarWidget />
+              <WeeklyMeetingsWidget />
             </div>
 
-            {/* Second Row: Trip Analytics, Revenue Analytics, Cost Analytics */}
+            {/* Row 2: Performance & Commission Tracking */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6">
+              <CommissionStructureWidget />
+              <PerformanceAveragesWidget />
+              <EmployeeWorkScheduleWidget />
+            </div>
+
+            {/* Row 3: Fleet & Operations Management */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-4 gap-6">
+              <BouncieStatusWidget />
+              <TaskManagerWidget />
+              <ScheduleWidget />
+              <RegistrationTracker />
+            </div>
+
+            {/* Row 4: Business Analytics */}
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
               <TripAnalyticsWidget />
               <RevenueAnalyticsWidget />
               <CostAnalyticsWidget />
             </div>
 
-            {/* Third Row: Operational Widgets */}
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-              <ScheduleWidget />
-              <RegistrationTracker />
+            {/* Row 5: Operational Intelligence */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6">
+              <CalendarWidget />
               <MaintenanceAlerts />
+              <div className="p-6 rounded-lg border-2 border-dashed border-gold-300 bg-gradient-to-br from-gold-50 to-yellow-50 flex flex-col items-center justify-center text-center min-h-[300px]">
+                <div className="text-6xl mb-4">🎯</div>
+                <h3 className="text-xl font-bold text-gold-700 mb-2">
+                  Ready for Big Screens!
+                </h3>
+                <p className="text-gold-600 mb-4">
+                  This dashboard is optimized for office displays and car wash area screens.
+                </p>
+                <div className="space-y-2 text-sm text-gold-600">
+                  <div>✅ Auto-refresh every 30 seconds</div>
+                  <div>✅ Large fonts for visibility</div>
+                  <div>✅ Touch-screen friendly</div>
+                  <div>✅ Staff task completion buttons</div>
+                </div>
+              </div>
             </div>
           </div>
         )}
