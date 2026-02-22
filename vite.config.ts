@@ -35,6 +35,7 @@ export default defineConfig({
   css: {
     postcss: "./postcss.config.cjs",
   },
+  base: '/gla-portal-v2-frontend/',
   build: {
     target: "es2022", // Support top-level await for pdfjs-dist v4.x
     chunkSizeWarningLimit: 2000,
