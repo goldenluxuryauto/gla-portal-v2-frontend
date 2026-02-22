@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GLA Dashboard - Simple Version</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        .widgets {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        .widget {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 12px;
+            padding: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        .widget h3 {
+            margin: 0 0 15px 0;
+            color: #F2C94C;
+        }
+        .metric {
+            font-size: 2em;
+            font-weight: bold;
+            color: #4ECDC4;
+        }
+        .status {
+            padding: 5px 10px;
+            border-radius: 20px;
+            background: #27AE60;
+            color: white;
+            font-size: 0.9em;
+            display: inline-block;
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🚀 GLA Business Command Center</h1>
+            <p>Your complete fleet management dashboard</p>
+            <div class="status">✅ Dashboard Online</div>
+        </div>
+        
+        <div class="widgets">
+            <div class="widget">
+                <h3>📊 Fleet Overview</h3>
+                <div class="metric">132 Vehicles</div>
+                <p>Active fleet across all locations</p>
+                <div class="status">All Systems Operational</div>
+            </div>
+            
+            <div class="widget">
+                <h3>💰 Revenue Today</h3>
+                <div class="metric">$8,247</div>
+                <p>Daily earnings from all sources</p>
+                <div class="status">Target: $9,000</div>
+            </div>
+            
+            <div class="widget">
+                <h3>🏆 Top Performer</h3>
+                <div class="metric">Armando</div>
+                <p>3 windshields completed</p>
+                <div class="status">Bonus Earned: $75</div>
+            </div>
+            
+            <div class="widget">
+                <h3>🚗 Active Trips</h3>
+                <div class="metric">47 Cars</div>
+                <p>Currently on rental</p>
+                <div class="status">87% Utilization</div>
+            </div>
+            
+            <div class="widget">
+                <h3>⚠️ Maintenance Alerts</h3>
+                <div class="metric">3 Items</div>
+                <p>Requiring attention</p>
+                <div class="status" style="background: #F39C12;">Action Needed</div>
+            </div>
+            
+            <div class="widget">
+                <h3>📍 Airport Status</h3>
+                <div class="metric">12 Available</div>
+                <p>Vehicles at SLC location</p>
+                <div class="status">Ready for Pickup</div>
+            </div>
+        </div>
+        
+        <div style="text-align: center; margin-top: 40px; opacity: 0.8;">
+            <p>⚙️ Golden Luxury Auto - The gear never stops turning!</p>
+            <p>Full dashboard with 16 widgets loading at main URL...</p>
+        </div>
+    </div>
+</body>
+</html>
