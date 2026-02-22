@@ -597,8 +597,8 @@ export function handleExportNadaExcel(
   car: any,
   year: string
 ): void {
-  // Dynamic import of xlsx to avoid loading it if not needed
-  import('xlsx').then((XLSX) => {
+  // Dynamic import of exceljs to avoid loading it if not needed
+  import('exceljs').then((ExcelJS) => {
     const getAllMonths = [
       "Jan",
       "Feb",

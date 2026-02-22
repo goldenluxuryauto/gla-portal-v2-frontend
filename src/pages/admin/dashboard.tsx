@@ -9,6 +9,12 @@ import { OnboardingTutorial, useTutorial } from "@/components/onboarding/Onboard
 import { ScheduleWidget } from "@/components/dashboard/ScheduleWidget";
 import { RegistrationTracker } from "@/components/dashboard/RegistrationTracker";
 import { MaintenanceAlerts } from "@/components/dashboard/MaintenanceAlerts";
+import { CalendarWidget } from "@/components/dashboard/CalendarWidget";
+import { TripAnalyticsWidget } from "@/components/dashboard/TripAnalyticsWidget";
+import { RevenueAnalyticsWidget } from "@/components/dashboard/RevenueAnalyticsWidget";
+import { CostAnalyticsWidget } from "@/components/dashboard/CostAnalyticsWidget";
+import { TaskManagerWidget } from "@/components/dashboard/TaskManagerWidget";
+import { PerformanceAveragesWidget } from "@/components/dashboard/PerformanceAveragesWidget";
 import { buildApiUrl } from "@/lib/queryClient";
 
 export default function AdminDashboard() {
@@ -412,11 +418,27 @@ export default function AdminDashboard() {
           </Card>
         </div>
 
-        {/* Enhanced Dashboard Widgets - Only for Admins */}
+        {/* Comprehensive Business Intelligence Dashboard - Only for Admins */}
         {isAdmin && (
-          <div className="space-y-4">
-            <h2 className="text-xl font-semibold text-foreground">Operations Dashboard</h2>
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
+          <div className="space-y-6">
+            <h2 className="text-xl font-semibold text-foreground">Business Command Center</h2>
+            
+            {/* Top Row: Calendar, Task Manager, Performance Averages */}
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+              <CalendarWidget />
+              <TaskManagerWidget />
+              <PerformanceAveragesWidget />
+            </div>
+
+            {/* Second Row: Trip Analytics, Revenue Analytics, Cost Analytics */}
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+              <TripAnalyticsWidget />
+              <RevenueAnalyticsWidget />
+              <CostAnalyticsWidget />
+            </div>
+
+            {/* Third Row: Operational Widgets */}
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
               <ScheduleWidget />
               <RegistrationTracker />
               <MaintenanceAlerts />
