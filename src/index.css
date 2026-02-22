@@ -5,59 +5,59 @@
 /* stylelint-disable-next-line at-rule-no-unknown */
 @tailwind utilities;
 
-/* LIGHT MODE - Luxury White Theme with Premium Gold Accent */
+/* GLA LUXURY THEME - Premium Dark with Golden Accents */
 :root {
-  --button-outline: rgba(0,0,0, .08);
-  --badge-outline: rgba(0,0,0, .04);
+  --button-outline: rgba(212, 168, 67, .2);
+  --badge-outline: rgba(212, 168, 67, .1);
   --opaque-button-border-intensity: -10;
-  --elevate-1: rgba(0,0,0, .02);
-  --elevate-2: rgba(0,0,0, .04);
-  /* Pure white base with subtle warm tint */
-  --background: 0 0% 100%;
-  --foreground: 0 0% 0%;
-  /* Soft, minimal borders */
-  --border: 0 0% 91%;
-  /* Cards with subtle elevation */
-  --card: 0 0% 100%;
-  --card-foreground: 0 0% 0%;
-  --card-border: 0 0% 93%;
-  /* Sidebar - clean white with subtle warmth */
-  --sidebar: 0 0% 99%;
-  --sidebar-foreground: 0 0% 0%;
-  --sidebar-border: 0 0% 92%;
+  --elevate-1: rgba(212, 168, 67, .05);
+  --elevate-2: rgba(212, 168, 67, .08);
+  /* Rich dark background like luxury car interiors */
+  --background: 220 13% 9%;
+  --foreground: 45 97% 94%;
+  /* Golden luxury borders */
+  --border: 45 23% 18%;
+  /* Premium cards with golden accent */
+  --card: 220 13% 11%;
+  --card-foreground: 45 97% 94%;
+  --card-border: 45 31% 25%;
+  /* Sidebar - luxurious dark with golden highlights */
+  --sidebar: 220 13% 8%;
+  --sidebar-foreground: 45 97% 94%;
+  --sidebar-border: 45 23% 18%;
   --sidebar-primary: 45 97% 54%;
-  --sidebar-primary-foreground: 0 0% 0%;
-  --sidebar-accent: 0 0% 96%;
-  --sidebar-accent-foreground: 0 0% 0%;
+  --sidebar-primary-foreground: 220 13% 9%;
+  --sidebar-accent: 220 13% 13%;
+  --sidebar-accent-foreground: 45 97% 94%;
   --sidebar-ring: 45 97% 54%;
-  /* Popovers */
-  --popover: 0 0% 100%;
-  --popover-foreground: 0 0% 0%;
-  --popover-border: 0 0% 91%;
-  /* Premium gold/yellow primary - vibrant and luxurious */
+  /* Popovers - dark luxury theme */
+  --popover: 220 13% 11%;
+  --popover-foreground: 45 97% 94%;
+  --popover-border: 45 23% 18%;
+  /* GLA Premium Gold Primary - signature color */
   --primary: 45 97% 54%;
-  --primary-foreground: 0 0% 100%;
-  /* Subtle secondary - light gray */
-  --secondary: 0 0% 96%;
-  --secondary-foreground: 0 0% 0%;
-  /* Muted backgrounds and text */
-  --muted: 0 0% 96%;
-  --muted-foreground: 0 0% 25%;
-  /* Accent - subtle highlight */
-  --accent: 0 0% 96%;
-  --accent-foreground: 0 0% 0%;
-  /* Destructive - professional red */
-  --destructive: 0 84% 40%;
-  --destructive-foreground: 0 0% 100%;
-  /* Input fields */
-  --input: 0 0% 89%;
-  /* Focus rings */
+  --primary-foreground: 220 13% 9%;
+  /* Dark secondary - sophisticated charcoal */
+  --secondary: 220 13% 15%;
+  --secondary-foreground: 45 97% 94%;
+  /* Muted backgrounds - luxury dark tones */
+  --muted: 220 13% 13%;
+  --muted-foreground: 45 20% 70%;
+  /* Accent - golden highlight */
+  --accent: 45 97% 54%;
+  --accent-foreground: 220 13% 9%;
+  /* Destructive - luxury red */
+  --destructive: 0 84% 50%;
+  --destructive-foreground: 45 97% 94%;
+  /* Input fields - dark with golden borders */
+  --input: 220 13% 15%;
+  /* Focus rings - golden glow */
   --ring: 45 97% 54%;
-  /* Charts - gold primary with complementary colors */
+  /* Charts - GLA luxury color palette */
   --chart-1: 45 97% 54%;
-  --chart-2: 200 80% 50%;
-  --chart-3: 280 70% 55%;
-  --chart-4: 150 70% 45%;
+  --chart-2: 220 100% 70%;
+  --chart-3: 280 70% 65%;
+  --chart-4: 150 70% 55%;
   --chart-5: 20 85% 55%;
   /* Typography */
   --font-sans: 'Inter', 'Open Sans', sans-serif;
