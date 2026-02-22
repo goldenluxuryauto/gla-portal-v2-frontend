@@ -11,6 +11,7 @@ import { ScheduleWidget } from "@/components/dashboard/ScheduleWidget";
 import { RegistrationTracker } from "@/components/dashboard/RegistrationTracker";
 import { MaintenanceAlerts } from "@/components/dashboard/MaintenanceAlerts";
 import { CalendarWidget } from "@/components/dashboard/CalendarWidget";
+import { GLACalendarWidget } from "@/components/dashboard/GLACalendarWidget";
 import { TripAnalyticsWidget } from "@/components/dashboard/TripAnalyticsWidget";
 import { RevenueAnalyticsWidget } from "@/components/dashboard/RevenueAnalyticsWidget";
 import { CostAnalyticsWidget } from "@/components/dashboard/CostAnalyticsWidget";
@@ -471,7 +472,7 @@ export default function AdminDashboard() {
 
             {/* Row 5: Operational Intelligence */}
             <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6">
-              <CalendarWidget />
+              <GLACalendarWidget />
               <MaintenanceAlerts />
               <div className="p-6 rounded-lg border-2 border-dashed border-gold-300 bg-gradient-to-br from-gold-50 to-yellow-50 flex flex-col items-center justify-center text-center min-h-[300px]">
                 <div className="text-6xl mb-4">🎯</div>
